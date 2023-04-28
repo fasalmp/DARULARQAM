@@ -27,7 +27,7 @@ Author URL: http://w3layouts.com
 				</div>
 				<div class="form-section">
 					<h3>Apply Now</h3>
-					<form action="#" method="post" class="signin-form">
+					<form id="submit-form" form action=""  class="signin-form">
 						<div class="form-input">
 							<input type="text" name="Name of Student" placeholder="വിദ്യാർത്ഥിയുടെ പേര്" required="" autofocus>
 						</div>
@@ -68,6 +68,25 @@ Author URL: http://w3layouts.com
 	</section>
 
 	<!-- /Signup form -->
+	<script>
+	$("#submit-form").submit((e)=>{
+		e.preventDefault()
+		$.ajax({
+			url:"https://script.google.com/macros/s/AKfycbwBU_Kv54IXJzSkgczNTPMjK2_mV6cN5_OEe5rMzHhW8raKlJuKQBWfZxu4Hbd8HRU7/exec",
+			data:$("#submit-form").serialize(),
+			method:"post",
+			success:function (response){
+				alert("Form submitted successfully")
+				window.location.reload()
+				window.location.href="https://www.google.com/"
+			},
+			error:function (err){
+				alert("Something Error")
+
+			}
+		})
+	})
+</script>
 </body>
 
 </html>
